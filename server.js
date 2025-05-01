@@ -8,6 +8,8 @@ const app = express();
 const leaveroutes=require("./Routes/leaveroutes");
 const employeeroutes=require("./Routes/employeeroutes");
 const empleaveroutes=require("./Routes/empleaveroutes");
+const pendingleave=require("./Routes/pendingleaveroutes");
+const states=require("./Routes/stateroutes");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // ✅ Parses URL-encoded data
 
@@ -19,7 +21,9 @@ app.use("/api/pw",pwroutes);
 app.use("/api/dept",deptroutes);
 app.use("/api/leave",leaveroutes);
 app.use("/api/emp",employeeroutes);
-app.use("/api/employeeleave",empleaveroutes)
+app.use("/api/employeeleave",empleaveroutes);
+app.use("/api/pendingleaves",pendingleave);
+app.use("/api/states",states);
 const PORT = process.env.PORT || 5000;
 
 // ✅ Start the Express server
